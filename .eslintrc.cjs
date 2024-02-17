@@ -31,6 +31,9 @@ module.exports = {
     "rules": {
         '@typescript-eslint/explicit-function-return-type': 'off',
         'react/react-in-jsx-scope': 'off',
-        'react/prop-types': 'off'
+        'react/prop-types': 'off',
+        // Note: you must disable the base rule as it can report incorrect errors
+        // "indent": "off",
+        // "@typescript-eslint/indent": "error"
     }
 }
