@@ -7,7 +7,7 @@ function App () {
   return (
     <div className='App'>
       <h1>Google Translate Clone</h1>
-      <button onClick={() => { setFromLanguage('Spanish') }}>
+      <button onClick={() => { setFromLanguage('es') }}>
         Change to Spanish
       </button>
       <h2>{fromLanguage}</h2>
