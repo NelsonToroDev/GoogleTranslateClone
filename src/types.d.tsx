@@ -5,17 +5,16 @@ export type AutoLanguage = typeof AUTO_LANGUAGE
 export type FromLanguage = Language | AutoLanguage
 
 export interface State {
+  fromLanguage: FromLanguage
+  toLanguage: Language
   fromText: string
   result: string
-  fromLanguage: string
-  toLanguage: string
   loading: boolean
 }
 
 export type Action =
   | { type: 'INTERCHANGE_LANGUAGES' }
-  | { type: 'SET_FROM_LANGUAGE', payload: string }
-  | { type: 'SET_TO_LANGUAGE', payload: string }
+  | { type: 'SET_FROM_LANGUAGE', payload: FromLanguage }
+  | { type: 'SET_TO_LANGUAGE', payload: Language }
   | { type: 'SET_FROM_TEXT', payload: string }
-  | { type: 'SET_TO_TEXT', payload: string }
   | { type: 'SET_RESULT', payload: string }

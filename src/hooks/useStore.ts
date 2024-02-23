@@ -24,6 +24,24 @@ function reducer (state: State, action: Action) {
     }
   }
 
+  if (type === 'SET_FROM_LANGUAGE') {
+    return {
+      ...state,
+      loading: true,
+      fromLanguage: action.payload,
+      result: ''
+    }
+  }
+
+  if (type === 'SET_TO_LANGUAGE') {
+    return {
+      ...state,
+      loading: true,
+      toLanguage: action.payload,
+      result: ''
+    }
+  }
+
   if (type === 'SET_FROM_TEXT') {
     return {
       ...state,
@@ -33,29 +51,14 @@ function reducer (state: State, action: Action) {
     }
   }
 
-  if (type === 'SET_TO_TEXT') {
-    return {
-      ...state,
-      loading: true,
-      toText: action.payload,
-      result: ''
-    }
-  }
-  if (type === 'SET_FROM_LANGUAGE') {
-    return {
-      ...state,
-      loading: true,
-      fromLanguage: action.payload,
-      result: ''
-    }
-  }
   if (type === 'SET_RESULT') {
     return {
       ...state,
-      loading: true,
+      loading: false,
       result: action.payload
     }
   }
+
   return state
 }
 
