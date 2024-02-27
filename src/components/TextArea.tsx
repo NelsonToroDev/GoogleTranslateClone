@@ -23,12 +23,13 @@ export const TextArea = ({ type, loading, onChange, value }: Props) => {
     : { ...commonStyles, backgroundColor: '#f5f5f5' }
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    onchange(event.target.value)
+    onChange(event.target.value)
   }
 
   return (
     <Form.Control
       as='textarea'
+      disabled={type === SectionType.To}
       placeholder={getPlaceholder({ type, loading })}
       autoFocus={type === SectionType.From}
       value={value}

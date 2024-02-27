@@ -7,9 +7,24 @@ import { SwapIcon } from './components/Icons'
 import { LanguageSelector } from './components/LanguageSelector'
 import { SectionType } from './types.d'
 import { TextArea } from './components/TextArea'
+import { useEffect } from 'react'
+import { translate } from './services/translate'
+import { useDebounce } from './hooks/useDebounce'
 
 function App () {
   const { fromLanguage, toLanguage, fromText, result, loading, setFromLanguage, setToLanguage, setFromText, setResult, interchangeLanguage } = useStore()
+
+  const debouncedFromText = useDebounce(fromText, 300)
+
+  useEffect(() => {
+    translate({ fromLanguage, toLanguage, text: debouncedFromText })
+      .then(result => {
+        if (result == null) return
+        setResult(result)
+      })
+      .catch(() => { setResult('Error') })
+  }, [fromLanguage, toLanguage, debouncedFromText])
+
   return (
     <Container fluid>
       <h2>Google Translate Clone</h2>
