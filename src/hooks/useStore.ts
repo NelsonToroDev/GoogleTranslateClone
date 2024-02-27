@@ -23,7 +23,7 @@ function reducer (state: State, action: Action) {
       toLanguage: state.fromLanguage,
       fromLanguage: state.toLanguage,
       fromText: state.result,
-      result: state.fromText
+      result: ''
     }
   }
 
